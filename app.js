@@ -149,6 +149,14 @@ function applyDataToSite(data) {
       img.src = data.business.logo;
     });
   }
+
+  // 8. Hydrate Announcement Bar text dynamically
+  if (data.business && data.business.announcement) {
+    const marqueeItems = document.querySelectorAll('.marquee-item');
+    marqueeItems.forEach(item => {
+      item.textContent = data.business.announcement;
+    });
+  }
 }
 
 /* ==========================================================================
