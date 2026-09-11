@@ -133,6 +133,22 @@ function applyDataToSite(data) {
   if (data.faq && data.faq.length > 0) {
     renderFaq(data.faq);
   }
+
+  // 6. Hydrate Facebook URLs dynamically
+  if (data.business && data.business.facebookUrl) {
+    const fbLinks = document.querySelectorAll('a[href*="facebook.com"]');
+    fbLinks.forEach(link => {
+      link.href = data.business.facebookUrl;
+    });
+  }
+
+  // 7. Hydrate Logo images dynamically
+  if (data.business && data.business.logo) {
+    const logoImgs = document.querySelectorAll('.brand-logo-img');
+    logoImgs.forEach(img => {
+      img.src = data.business.logo;
+    });
+  }
 }
 
 /* ==========================================================================
