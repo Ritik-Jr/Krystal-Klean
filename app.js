@@ -157,6 +157,14 @@ function applyDataToSite(data) {
       item.textContent = data.business.announcement;
     });
   }
+
+  // 9. Hydrate Google Map Embed iframe dynamically
+  if (data.business && data.business.googleMapEmbedUrl) {
+    const mapIframe = document.getElementById('googleMapIframe');
+    if (mapIframe) {
+      mapIframe.src = data.business.googleMapEmbedUrl;
+    }
+  }
 }
 
 /* ==========================================================================

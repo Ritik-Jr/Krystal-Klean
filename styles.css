@@ -1321,21 +1321,185 @@ h1, h2, h3, h4, .brand-name {
 }
 
 /* ==========================================================================
-   Postcode Coverage & Search
+   Postcode Coverage & Google Map Component
    ========================================================================== */
-.coverage-card {
-  border-radius: var(--radius-xl);
-  padding: 60px 40px;
-  border: 1px solid var(--border-subtle);
-  max-width: 900px;
+.coverage-bento-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 28px;
+  align-items: stretch;
+  max-width: 1140px;
   margin: 0 auto;
 }
 
+.coverage-card {
+  border-radius: var(--radius-xl);
+  padding: 48px 36px;
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  box-sizing: border-box;
+}
+
 .coverage-desc {
-  font-size: 1.125rem;
+  font-size: 1.0625rem;
   color: var(--text-body);
-  max-width: 600px;
-  margin: 0 auto 32px auto;
+  line-height: 1.6;
+  margin: 0 0 28px 0;
+}
+
+.coverage-hubs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.hub-pill {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.8125rem;
+  color: var(--text-body);
+  line-height: 1.5;
+}
+
+.hub-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-top: 6px;
+  flex-shrink: 0;
+}
+
+.hub-dot.primary {
+  background-color: var(--accent-teal);
+  box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.2);
+}
+
+.hub-dot.secondary {
+  background-color: #3B82F6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+.hub-pill strong {
+  color: var(--text-dark);
+  display: block;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.map-card {
+  border-radius: var(--radius-xl);
+  padding: 28px;
+  border: 1px solid var(--border-subtle);
+  background-color: #FFFFFF;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.map-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.map-badge-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent-teal-dark);
+  background-color: var(--pastel-mint);
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  margin-bottom: 4px;
+}
+
+.map-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin: 0;
+}
+
+.map-external-link {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--accent-teal-dark);
+  text-decoration: none;
+  padding: 6px 14px;
+  background-color: var(--pastel-sand);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-full);
+  transition: var(--transition-fast);
+}
+
+.map-external-link:hover {
+  background-color: var(--accent-teal);
+  color: #FFFFFF;
+  border-color: var(--accent-teal);
+  transform: translateY(-1px);
+}
+
+.map-frame-wrapper {
+  position: relative;
+  width: 100%;
+  flex: 1;
+  min-height: 360px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+  background-color: var(--bg-subtle);
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.map-frame-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.map-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 16px;
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  flex-wrap: wrap;
+}
+
+.map-footer-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.map-icon-mini {
+  color: var(--accent-teal);
+}
+
+.map-footer-item.stars strong {
+  color: var(--text-dark);
+  margin-left: 2px;
 }
 
 .postcode-search-box {
@@ -1815,6 +1979,11 @@ html, body {
     gap: 32px;
   }
 
+  .coverage-bento-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
   .footer-layout {
     grid-template-columns: 1fr 1fr;
     gap: 32px;
@@ -2288,15 +2457,20 @@ html, body {
     margin: 12px 0 16px 0;
   }
 
-  /* Coverage Postcode Search Box */
+  /* Coverage Bento Grid & Google Map Component */
+  .coverage-bento-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
   .coverage-card {
-    padding: 28px 16px;
+    padding: 24px 16px;
     border-radius: var(--radius-lg);
   }
 
   .coverage-desc {
     font-size: 0.9375rem;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
   }
 
   .postcode-search-box {
@@ -2305,6 +2479,23 @@ html, body {
     border-radius: var(--radius-md);
     padding: 8px;
     gap: 8px;
+  }
+
+  .map-card {
+    padding: 16px;
+    border-radius: var(--radius-lg);
+  }
+
+  .map-frame-wrapper {
+    min-height: 280px;
+    height: 280px;
+  }
+
+  .map-card-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 0.75rem;
   }
 
   /* Prevent iOS / mobile browser auto-zooming on input focus (requires font-size >= 16px) */

@@ -691,23 +691,92 @@
       </div>
     </section>
 
-    <!-- Minimalist Postcode Coverage Checker -->
+    <!-- Minimalist Postcode Coverage & Google Map Section -->
     <section class="coverage-section" id="coverage">
       <div class="container">
         
-        <div class="coverage-card pastel-sand text-center fade-up">
-          <span class="sub-label">Operating Coverage</span>
-          <h2 class="section-heading">Serving Coventry & Surrounding Towns</h2>
-          <p class="coverage-desc">
-            Centred at <strong>29 Lavender Avenue, Coventry (CV6 1BZ)</strong>, servicing CV1 through CV6, Kenilworth, Bedworth, Warwick, and Leamington Spa.
-          </p>
+        <div class="coverage-bento-grid">
+          <!-- Left: Postcode Availability Checker Card -->
+          <div class="coverage-card pastel-sand fade-up">
+            <div>
+              <span class="sub-label">Operating Coverage</span>
+              <h2 class="section-heading text-left">Serving Coventry & Surrounding Towns</h2>
+              <p class="coverage-desc text-left">
+                Centred at <strong>29 Lavender Avenue, Coventry (CV6 1BZ)</strong>, servicing CV1 through CV6, Kenilworth, Bedworth, Warwick, and Leamington Spa.
+              </p>
 
-          <div class="postcode-search-box">
-            <input type="text" id="areaCheckInput" class="postcode-input" placeholder="Enter your postcode (e.g. CV6 1BZ)">
-            <button type="button" id="btnCheckArea" class="btn-pill-primary">Check Availability</button>
+              <div class="postcode-search-box">
+                <input type="text" id="areaCheckInput" class="postcode-input" placeholder="Enter your postcode (e.g. CV6 1BZ)">
+                <button type="button" id="btnCheckArea" class="btn-pill-primary">Check Availability</button>
+              </div>
+
+              <div id="areaResult" class="postcode-feedback" aria-live="polite"></div>
+            </div>
+
+            <div class="coverage-hubs-list">
+              <div class="hub-pill">
+                <span class="hub-dot primary"></span>
+                <div>
+                  <strong>CV1 – CV6 Primary Hub:</strong>
+                  <span>Coventry City Centre, Earlsdon, Foleshill, Radford & Holbrooks</span>
+                </div>
+              </div>
+              <div class="hub-pill">
+                <span class="hub-dot secondary"></span>
+                <div>
+                  <strong>Warwickshire Towns:</strong>
+                  <span>Kenilworth, Bedworth, Nuneaton, Warwick & Leamington Spa</span>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div id="areaResult" class="postcode-feedback" aria-live="polite"></div>
+          <!-- Right: Google Map Component Card -->
+          <div class="map-card pastel-card fade-up">
+            <div class="map-card-header">
+              <div class="map-header-left">
+                <span class="map-badge-live">
+                  <span class="live-dot" aria-hidden="true"></span>
+                  <span>Google Maps Verified</span>
+                </span>
+                <h3 class="map-title">Krystal Klean Service Hub</h3>
+              </div>
+              <a href="https://www.google.com/maps/place/Krystal+klean/@52.3726061,-1.7806894,34029m/data=!3m1!1e3!4m18!1m9!3m8!1s0x487749e17685d4eb:0xafc8f7790e41b663!2sKrystal+klean!8m2!3d52.4327993!4d-1.4754174!9m1!1b1!16s%2Fg%2F11lghtyjkn!3m7!1s0x487749e17685d4eb:0xafc8f7790e41b663!8m2!3d52.4327993!4d-1.4754174!9m1!1b1!16s%2Fg%2F11lghtyjkn?entry=ttu&g_ep=EgoyMDI2MDkwOC4wIKXMDSoASAFQAw%3D%3D" 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="map-external-link"
+                 id="mapExternalLink"
+                 aria-label="Open Krystal Klean in Google Maps">
+                <span>Open in Maps</span> &rarr;
+              </a>
+            </div>
+
+            <div class="map-frame-wrapper">
+              <iframe 
+                id="googleMapIframe"
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d148182.66569778306!2d-1.7806894!3d52.3726061!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487749e17685d4eb%3A0xafc8f7790e41b663!2sKrystal%20klean!5e1!3m2!1sen!2sin!4v1789145413103!5m2!1sen!2sin" 
+                width="600" 
+                height="450" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="strict-origin-when-cross-origin"
+                title="Krystal Klean Service Area on Google Maps">
+              </iframe>
+            </div>
+
+            <div class="map-card-footer">
+              <span class="map-footer-item">
+                <svg class="map-icon-mini" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <span>29 Lavender Avenue, Coventry, CV6 1BZ</span>
+              </span>
+              <span class="map-footer-item stars">
+                <span class="stars-gold">★★★★★</span>
+                <strong>4.9 / 5.0 (84+ Reviews)</strong>
+              </span>
+            </div>
+          </div>
+
         </div>
 
       </div>
